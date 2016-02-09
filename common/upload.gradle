@@ -1,9 +1,9 @@
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-def siteUrl = 'https://github.com/ashqal/NightOwl'      // Homepage URL of the library
-def gitUrl = 'https://github.com/ashqal/NightOwl.git'   // Git repository URL
-group = 'io.liamju.comm'                                // Maven Group ID for the artifact
+def siteUrl = 'https://github.com/LiamJu/LCommon'      // Homepage URL of the library
+def gitUrl = 'https://github.com/LiamJu/LCommon.git'   // Git repository URL
+group = 'io.liamju'                                    // Maven Group ID for the artifact
 
 
 install {
@@ -66,7 +66,7 @@ bintray {
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
         publish = true
-        version '1.0'
+        version '1.0.2'
         description 'My Android Common Utility'
     }
 }
