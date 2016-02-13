@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LCommon</string>
+    <string name="ListFragment">ListFragment</string>
+    <string name="RecyclerFragment">RecyclerFragment</string>
 </resources>
