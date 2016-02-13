@@ -1,43 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="io.liamju.comm.sample.MainActivity">
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:background="@android:color/darker_gray"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+        <TextView
+            android:id="@+id/text_log"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:isScrollContainer="true"
+            android:scrollbars="vertical"/>
+
+    </ScrollView>
 
     <FrameLayout
         android:id="@id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></FrameLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <Button
-            android:text="empty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="setEmptyText"/>
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical">-->
+    <!--<Button-->
+    <!--android:text="empty"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:onClick="setEmptyText"/>-->
 
-        <Button
-            android:text="select"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="selectItem"/>
+    <!--<Button-->
+    <!--android:text="select"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:onClick="selectItem"/>-->
 
-        <Button
-            android:text="fillItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="fillItem"/>
+    <!--<Button-->
+    <!--android:text="fillItem"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:onClick="fillItem"/>-->
 
-        <Button
-            android:text="nullAdapter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="nullAdapter"/>
+    <!--<Button-->
+    <!--android:text="nullAdapter"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:onClick="nullAdapter"/>-->
 
-    </LinearLayout>
-</RelativeLayout>
+    <!--</LinearLayout>-->
+</LinearLayout>

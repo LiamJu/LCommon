@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="id_list_container" type="id"/>
+    <item name="id_progress_container" type="id"/>
+    <item name="id_empty" type="id"/>
+    <item name="id_recycler_view" type="id"/>
+    <item name="fragment_container" type="id"/>
+    <item name="text_indicator" type="id"/>
+    <item name="progress" type="id"/>
+</resources>

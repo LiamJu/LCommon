@@ -1,4 +1,4 @@
-package io.liamju.comm.sample.interfaces;
+package io.liamju.comm.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
