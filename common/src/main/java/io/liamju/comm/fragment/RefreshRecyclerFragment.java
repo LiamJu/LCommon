@@ -19,6 +19,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.List;
+
 import io.liamju.comm.R;
 import io.liamju.comm.view.LceRecyclerView;
 import io.liamju.comm.view.LceRefreshView;
@@ -32,7 +34,7 @@ import io.liamju.comm.widget.DividerItemDecoration;
  * @since 16/2/13
  */
 public abstract class RefreshRecyclerFragment<RV extends RecyclerView, RVA extends RecyclerView.Adapter, M>
-        extends Fragment implements LceRefreshView<M>, LceRecyclerView<RV, RVA> {
+        extends Fragment implements LceRefreshView<List<M>>, LceRecyclerView<RV, RVA> {
 
     private static final String TAG = RefreshRecyclerFragment.class.getSimpleName();
 
@@ -61,26 +63,12 @@ public abstract class RefreshRecyclerFragment<RV extends RecyclerView, RVA exten
     RVA mAdapter;
     RV mList;
     LinearLayoutManager mLayoutManager;
-//    SwipeRefreshLayout mRefresh;
     View mEmptyView;
     TextView mStandardEmptyView;
     View mProgressContainer;
     SwipeRefreshLayout mListContainer;
     CharSequence mEmptyText;
     boolean mListShown;
-
-//    protected static final int STATE_NONE = 1;
-//    protected static final int STATE_REFRESH = 2;
-//    protected static final int STATE_LOAD_MORE = 3;
-//
-//    @Retention(RetentionPolicy.CLASS)
-//    @IntDef({STATE_NONE, STATE_REFRESH, STATE_LOAD_MORE})
-//    public @interface RefreshState {
-//    }
-//
-//    protected
-//    @RefreshState
-//    int mState = STATE_NONE;
 
     public RefreshRecyclerFragment() {
 
