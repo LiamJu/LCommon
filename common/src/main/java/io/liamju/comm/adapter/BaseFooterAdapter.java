@@ -20,11 +20,13 @@ import io.liamju.comm.view.ItemsView;
  * @version 1.0
  * @since 16/2/13
  */
-public abstract class BaseFooterAdapter<D> extends RecyclerView.Adapter implements ItemsView<D> {
+public abstract class BaseFooterAdapter<D> extends RecyclerView.Adapter
+        implements FooterView<BaseFooterAdapter.FooterViewHolder>, ItemsView<D> {
 
     private final static int TYPE_FOOTER = 0x12301;
 
     private List<D> mItems = new ArrayList<>();
+    private @State int mState;
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -62,6 +64,24 @@ public abstract class BaseFooterAdapter<D> extends RecyclerView.Adapter implemen
     }
 
     @Override
+    public void setFooterState(@State int state) {
+        if (mState == state) {
+            return;
+        }
+        mState = state;
+    }
+
+    @Override
+    public int getFooterState() {
+        return mState;
+    }
+
+    @Override
+    public void setFooterView(FooterViewHolder vh) {
+
+    }
+
+    @Override
     public void setItems(Collection<D> items) {
         mItems = new ArrayList<>(items);
         notifyDataSetChanged();
@@ -95,9 +115,12 @@ public abstract class BaseFooterAdapter<D> extends RecyclerView.Adapter implemen
     protected abstract int getOtherItemViewType(int position);
 
     public static class FooterViewHolder extends RecyclerView.ViewHolder {
-
+        TextView indicator;
+        ProgressBar progressBar;
         public FooterViewHolder(View itemView) {
             super(itemView);
+            indicator = (TextView) itemView.findViewById(R.id.text_indicator);
+            progressBar = (ProgressBar) itemView.findViewById(R.id.progress);
         }
 
     }

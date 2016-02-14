@@ -13,20 +13,22 @@ import java.lang.annotation.RetentionPolicy;
  */
 public interface FooterView<VH extends RecyclerView.ViewHolder> {
 
-    int DRAGGING     = 0x122302;
-    int NO_MORE      = 0x122303;
-    int NONE         = 0x122304;
-    int LOADING      = 0x122305;
-    int EMPTY_DATA   = 0x122306;
+    int LOAD_MORE   = 0x122301;
+    int DRAGGING    = 0x122302;
+    int NO_MORE     = 0x122303;
+    int NONE        = 0x122304;
+    int LOADING     = 0x122305;
+    int EMPTY_DATA  = 0x122306;
 
-    @IntDef({EMPTY_DATA, DRAGGING, NO_MORE, NONE, LOADING})
+    @IntDef({EMPTY_DATA, LOAD_MORE, DRAGGING, NO_MORE, NONE, LOADING})
     @Retention(RetentionPolicy.SOURCE)
     @interface State {
     }
 
     void setFooterState(@State int state);
 
-    @State int getFooterState();
+    @State
+    int getFooterState();
 
     void setFooterView(VH vh);
 }

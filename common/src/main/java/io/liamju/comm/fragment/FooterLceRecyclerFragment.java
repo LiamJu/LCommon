@@ -8,10 +8,6 @@ import android.view.View;
 import io.liamju.comm.adapter.BaseFooterAdapter;
 import io.liamju.comm.view.FooterView;
 
-import static android.support.v7.widget.RecyclerView.SCROLL_STATE_DRAGGING;
-import static android.support.v7.widget.RecyclerView.SCROLL_STATE_IDLE;
-import static android.support.v7.widget.RecyclerView.SCROLL_STATE_SETTLING;
-
 /**
  * @author LiamJu
  * @version 1.0
@@ -41,8 +37,13 @@ public abstract class FooterLceRecyclerFragment<RV extends RecyclerView, RVA ext
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
+
+                if (FooterView.LOADING == mAdapter.getFooterState()) {
+                    return;
+                }
                 if (newState == RecyclerView.SCROLL_STATE_IDLE
                         && lastVisibleItem + 1 == mAdapter.getItemCount()) {
+                    mAdapter.setFooterState(FooterView.LOADING);
                     loadData(false);
                 }
             }
