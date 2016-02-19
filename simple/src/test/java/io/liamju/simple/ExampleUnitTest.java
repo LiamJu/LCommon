@@ -1,4 +1,4 @@
-package io.liamju.comm.sample;
+package io.liamju.simple;
 
 import org.junit.Test;
 
