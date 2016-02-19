@@ -62,7 +62,7 @@ public class ImageLoader {
      */
     private static final long KEEP_ALIVE = 10L;
 
-    private static final int TAG_KEY_url = R.id.imageloader_url;
+    private static final int TAG_KEY_URL = R.id.imageloader_url;
     /**
      * 磁盘缓存的容量为8M
      */
@@ -92,7 +92,7 @@ public class ImageLoader {
             LoaderResult result = (LoaderResult) msg.obj;
             ImageView imageView = result.imageView;
             //imageView.setImageBitmap(result.bitmap);
-            String url = (String) imageView.getTag(TAG_KEY_url);
+            String url = (String) imageView.getTag(TAG_KEY_URL);
             if (url.equals(result.url)) {
                 imageView.setImageBitmap(result.bitmap);
             } else {
@@ -105,6 +105,26 @@ public class ImageLoader {
     private ImageResizer mImageResizer = new ImageResizer();
     private LruCache<String, Bitmap> mMemoryCache;
     private DiskLruCache mDiskLruCache;
+
+    private static ImageLoader sInstance;
+
+    /**
+     * build a new instance of ImageLoader
+     *
+     * @param context
+     * @return a new instance of ImageLoader
+     */
+    public static ImageLoader getInstance(Context context) {
+        if (sInstance == null) {
+            synchronized (ImageLoader.class) {
+                // 双重判断可以避免重复实例化ImageLoader
+                if (sInstance == null) {
+                    sInstance = new ImageLoader(context);
+                }
+            }
+        }
+        return sInstance;
+    }
 
     private ImageLoader(Context context) {
         mContext = context.getApplicationContext();
@@ -129,16 +149,6 @@ public class ImageLoader {
         }
     }
 
-    /**
-     * build a new instance of ImageLoader
-     *
-     * @param context
-     * @return a new instance of ImageLoader
-     */
-    public static ImageLoader build(Context context) {
-        return new ImageLoader(context);
-    }
-
     private void addBitmapToMemoryCache(String key, Bitmap bitmap) {
         if (getBitmapFormMemoryCache(key) == null) {
             mMemoryCache.put(key, bitmap);
@@ -161,7 +171,7 @@ public class ImageLoader {
     }
 
     public void bindBitmap(final String url, final ImageView imageView, final int reqWidth, final int reqHeight) {
-        imageView.setTag(TAG_KEY_url, url);
+        imageView.setTag(TAG_KEY_URL, url);
         Bitmap bitmap = loadBitmapFromMemoryCache(url);
         if (bitmap != null) {
             imageView.setImageBitmap(bitmap);

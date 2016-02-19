@@ -1,4 +1,4 @@
-package io.liamju.comm.sample;
+package io.liamju.simple;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
