@@ -14,18 +14,10 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/clear_cache"
-        android:icon="@android:drawable/ic_menu_delete"
-        android:title="@string/clear_cache_menu"
-        app:showAsAction="never"/>
+<resources>
 
-    <item
-        android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        app:showAsAction="never"/>
+    <dimen name="image_thumbnail_size">198dp</dimen>
+    <dimen name="image_thumbnail_spacing">2dp</dimen>
 
-</menu>
+</resources>

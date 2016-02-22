@@ -14,18 +14,16 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/clear_cache"
-        android:icon="@android:drawable/ic_menu_delete"
-        android:title="@string/clear_cache_menu"
-        app:showAsAction="never"/>
+<GridView xmlns:android="http://schemas.android.com/apk/res/android"
+          android:id="@+id/gridView"
+          style="@style/PhotoGridLayout"
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"
+          android:columnWidth="@dimen/image_thumbnail_size"
+          android:horizontalSpacing="@dimen/image_thumbnail_spacing"
+          android:numColumns="auto_fit"
+          android:stretchMode="columnWidth"
+          android:verticalSpacing="@dimen/image_thumbnail_spacing">
 
-    <item
-        android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        app:showAsAction="never"/>
-
-</menu>
+</GridView>

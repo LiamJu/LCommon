@@ -67,6 +67,6 @@ bintray {
         licenses = ["Apache-2.0"]
         publish = true
         version '1.0.5'
-        description 'My Android Common Utility - Delete Imageload, add ChooserPopupWindow'
+        description 'My Android Common Utility - Add Google Sample ImageFetcher'
     }
 }
